@@ -1,21 +1,41 @@
 'use strict';
 
-import React from 'react/addons';
-import {Button, Row, Col} from 'react-bootstrap';
+import React from 'react';
+import Reflux from 'reflux';
+
+import {Button, Input, Grid, Row, Col} from 'react-bootstrap';
+
+import TwitterStore from '../stores/TwitterStore';
+import TwitterActions from '../actions/TwitterActions';
 
 const Home = React.createClass({
-    render() {
+        mixins: [Reflux.connect(TwitterStore, 'data')],
+        handleClick: function (e) {
+            e.preventDefault();
 
-        return (
-            <span>
-                <h1>H1 - Lorem Ipsum</h1>
-                <h2>H2 - Lorem Ipsum</h2>
-                <h3>H3 - Lorem Ipsum</h3>
-                <h4>H4 - Lorem Ipsum</h4>
-                <h5>H5 - Lorem Ipsum</h5>
-                <p>p - Lorem Ipsum</p>
-                <small>small - Lorem Ipsum</small>
-            </span>
+            var link = this.refs.link.getValue();
+            TwitterActions.getShareCount(link);
+        },
+        render() {
+            return (
+                <Grid>
+                    <Row>
+                        <Col sm={6}>
+                            <h1>Gimme that name!</h1>
+                            <Row>
+                                <Col sm={6}>
+                                    <Input ref="link" type="text" label="Keyword" />
+                                </Col>
+                                <Col sm={6}>
+                                    <Button bsStyle="primary" onClick={this.handleClick}>Search</Button>
+                                </Col>
+                            </Row>
+                        </Col>
+                        <Col sm={6}>
+                            <p className="lead">{this.state.data.count}</p>
+                        </Col>
+                    </Row>
+                </Grid>
         );
     }
 });

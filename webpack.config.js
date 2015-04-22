@@ -7,8 +7,7 @@ var CompressionPlugin = require("compression-webpack-plugin");
 module.exports = function (prod) {
 
     var entry = [
-        './app/index',
-        'bootstrap-sass!./bootstrap-sass.config.js'
+        './app/index'
     ];
 
     if (!prod) {
@@ -19,30 +18,79 @@ module.exports = function (prod) {
     }
 
     var plugins = [
-        // extract styles into separate file
-        new ExtractTextPlugin('styles.css'),
-        // gzipping text based files
-        new CompressionPlugin({
-               asset: '{file}.gz',
-               algorithm: 'gzip',
-               regExp: /\.js$|\.html$|\.css$/
-        })
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoErrorsPlugin(),
     ];
 
     if (prod) {
         plugins = plugins.concat([
-            new webpack.HotModuleReplacementPlugin(),
-            new webpack.NoErrorsPlugin(),
             new webpack.DefinePlugin({
     			"process.env": {
     				"NODE_ENV": JSON.stringify("production")
     			}
     		}),
     		new webpack.optimize.DedupePlugin(),
-    		new webpack.optimize.UglifyJsPlugin()
+    		new webpack.optimize.UglifyJsPlugin(),
+            // extract styles into separate file
+            new ExtractTextPlugin('styles.css'),
+            // gzipping text based files
+            new CompressionPlugin({
+                   asset: '{file}.gz',
+                   algorithm: 'gzip',
+                   regExp: /\.js$|\.html$|\.css$/
+            })
         ]);
     }
 
+    var loaders = [
+        { test: /\.jsx$/, loaders: [
+          'react-hot',
+          'jsx?harmony',
+          'babel-loader',
+        ], exclude: /node_modules/ },
+        { test: /\.js$/, loaders: [
+          'react-hot',
+          'jsx?harmony',
+          'babel-loader',
+        ], exclude: /node_modules/ },
+        { test: /\.json$/, loaders: [
+          'json-loader'
+        ]},
+        { test: /\.(jpe?g|png|gif|svg)$/i,
+          loaders: [
+              'file?hash=sha512&digest=hex&name=[hash].[ext]',
+              'image?bypassOnDebug&optimizationLevel=7&interlaced=false'
+        ], exclude: /node_modules/ }
+
+    ];
+
+    if (prod) {
+        loaders = loaders.concat([
+            {
+                test: /\.css$/,
+                loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
+            },
+            {
+                test: /\.scss$/,
+                loader: ExtractTextPlugin.extract( 'style-loader', 'css-loader!sass-loader' )
+            },
+        ]);
+    }
+
+    if (!prod) {
+        loaders = loaders.concat([
+            { test: /\.css$/,
+              loaders: [
+                'style-loader',
+                'css-loader',
+              ]
+            },
+            {
+                test: /\.scss$/,
+                loader: 'style!css!sass'
+            }
+        ]);
+    }
 
     return {
       devtool: 'eval',
@@ -57,36 +105,7 @@ module.exports = function (prod) {
         extensions: ['', '.js', '.jsx', '.css', '.scss']
       },
       module: {
-        loaders: [
-          { test: /\.jsx$/, loaders: [
-            'react-hot',
-            'jsx?harmony',
-            'babel-loader',
-          ], exclude: /node_modules/ },
-          { test: /\.js$/, loaders: [
-            'react-hot',
-            'jsx?harmony',
-            'babel-loader',
-          ], exclude: /node_modules/ },
-          { test: /\.css$/,
-            loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
-          },
-          { test: /\.scss$/,
-              loader: ExtractTextPlugin.extract( 'style-loader', 'css-loader!sass-loader' )
-          },
-          { test: /\.(jpe?g|png|gif|svg)$/i,
-            loaders: [
-                'file?hash=sha512&digest=hex&name=[hash].[ext]',
-                'image?bypassOnDebug&optimizationLevel=7&interlaced=false'
-          ], exclude: /node_modules/ },
-          // Needed for the css-loader when [bootstrap-webpack](https://github.com/bline/bootstrap-webpack)
-          // loads bootstrap's css.
-          { test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,   loader: 'url?limit=10000&minetype=application/font-woff' },
-          { test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,  loader: 'url?limit=10000&minetype=application/font-woff' },
-          { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,    loader: 'url?limit=10000&minetype=application/octet-stream' },
-          { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,    loader: 'file' },
-          { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,    loader: 'url?limit=10000&minetype=image/svg+xml' },
-        ]
+        loaders: loaders
       },
     };
 };
