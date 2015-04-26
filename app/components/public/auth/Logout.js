@@ -23,7 +23,7 @@ export var Logout = React.createClass({
         return (
             <Row>
                 <Col xs={12}>
-                    <h1>Erfolgreich ausgeloggt!</h1>
+                    <h1>Signed out successfully!</h1>
                 </Col>
             </Row>
         );

@@ -8,7 +8,7 @@ var LoginError = React.createClass({
   render: function () {
     return (
         <Alert bsStyle='danger' onDismiss={this.handleAlertDismiss}>
-            <h4>Fehler beim Login</h4>
+            <h4>Login error</h4>
             <ul>
                 { this.props.error.map(function(item){
                     return <li>{item}</li>;
@@ -108,8 +108,8 @@ export var Login = React.createClass({
                                 <Input
                                 required={true}
                                 type='password'
-                                placeholder='Passwort'
-                                label='Passwort'
+                                placeholder='Password'
+                                label='Password'
                                 ref='password'
                                 groupClassName='group-class'
                                 wrapperClassName='wrapper-class'
@@ -117,9 +117,9 @@ export var Login = React.createClass({
 
                                 <Button type="submit" bsStyle="primary" bsSize="large" block onSubmit={this.onSubmit}>Login</Button>
                             </form>
-                            <ButtonLink to="login" bsStyle="link" bsSize="large" block>Passwort vergessen?</ButtonLink>
+                            <ButtonLink to="login" bsStyle="link" bsSize="large" block>Forgot password?</ButtonLink>
                             <hr />
-                            <ButtonLink to="register" bsSize="large" className="btn-ghost" block>Registrieren</ButtonLink>
+                            <ButtonLink to="register" bsSize="large" className="btn-ghost" block>Sign up</ButtonLink>
                         </Col>
                     </Row>
                 </Grid>

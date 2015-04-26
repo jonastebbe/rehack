@@ -11,7 +11,7 @@ var RegisterError = React.createClass({
   render: function () {
     return (
         <Alert bsStyle='danger' onDismiss={this.handleAlertDismiss}>
-            <h4>Fehler bei der Registrierung</h4>
+            <h4>Sign up error</h4>
             <ul>
                 { this.props.error.map(function(item){
                     return <li>{item}</li>;
@@ -34,8 +34,8 @@ var RegisterSuccess = React.createClass({
     render: function () {
         return (
             <div>
-                <h2>Sie haben sich erfolgreich regstriert.</h2>
-                <p><Link to='login'>Bitte Melden Sie sich an.</Link></p>
+                <h2>You have signed up successfully.</h2>
+                <p><Link to='login'>Please login.</Link></p>
             </div>
         );
     }
@@ -67,8 +67,8 @@ var RegisterForm = React.createClass({
                 <Input
                 required={true}
                 type='password'
-                placeholder='Passwort'
-                label='Passwort'
+                placeholder='Password'
+                label='Password'
                 ref='password'
                 groupClassName='group-class'
                 wrapperClassName='wrapper-class'
@@ -77,14 +77,14 @@ var RegisterForm = React.createClass({
                 <Input
                 required={true}
                 type='password'
-                placeholder='Passwort'
-                label='Passwort Bestätigen'
+                placeholder='Password'
+                label='Confirm password'
                 ref='passwordConfirm'
                 groupClassName='group-class'
                 wrapperClassName='wrapper-class'
                 labelClassName='label-class'/>
 
-                <Button type="submit" bsStyle="primary" bsSize="large" block onSubmit={this.onSubmit}>Registrieren</Button>
+                <Button type="submit" bsStyle="primary" bsSize="large" block onSubmit={this.onSubmit}>Sign up</Button>
             </form>
         );
     }
@@ -122,7 +122,7 @@ export var Register = React.createClass({
                   <Grid>
                     <Row>
                         <Col className="subheader__title text-center" xs={12}>
-                            <h2>Registrierung</h2>
+                            <h2>Register</h2>
                         </Col>
                     </Row>
                   </Grid>
