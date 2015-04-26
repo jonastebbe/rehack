@@ -15,7 +15,7 @@ const Header = React.createClass({
         var landing = <NavItemLink to="landing">Landing</NavItemLink>;
 
         return(
-            <Navbar brand='Brand'>
+            <Navbar brand='Prosper'>
                 <Nav>
                     {landing}
                     {link}

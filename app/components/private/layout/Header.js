@@ -15,8 +15,8 @@ const Header = React.createClass({
         var home = <NavItemLink to="home">Home</NavItemLink>;
 
         return(
-            <Navbar brand='Brand'>
-                <Nav>
+            <Navbar brand='Prosper'>
+                <Nav right>
                     {home}
                     {link}
                 </Nav>
