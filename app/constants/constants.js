@@ -1,17 +1,15 @@
 'use strict';
 
-var APIBase = (process.env.NODE_ENV === 'development') ? 'http://api.production.com' : 'http://localhost:8000';
+var APIBase = (process.env.NODE_ENV === 'production') ? 'http://api.production.com' : 'http://localhost:8000';
 
 export const constants = {
 
   APIEndpoints: {
+    BASE:           APIBase,
+    LOGIN:          APIBase + '/v1/auth/sign_in',
+    LOGOUT:         APIBase + '/v1/auth/sign_out',
+    VALIDATE:       APIBase + '/v1/auth/validate_token',
+    REGISTRATION:   APIBase + '/v1/auth/',
   },
-
-  TwitterKeys: {
-      consumerKey: 'v5KqYm2EAeReBMH1W8ix41h47',
-      consumerSecret: 'dEFwUYgBpsO49LxWmLaW7AjPsvDI7iWgCRP7gHX96Nx43zEdst',
-      accessToken: '80340371-JgIebiWbgzE3SRBtogImKZOJx51yyWNdoWMRiK9ua',
-      accessTokenSecret: '80340371-JgIebiWbgzE3SRBtogImKZOJx51yyWNdoWMRiK9ua'
-  }
 
 };

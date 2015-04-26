@@ -2,18 +2,18 @@
 
 import React from 'react';
 import {RouteHandler} from 'react-router';
-import {Grid, Row, Col, Nav} from 'react-bootstrap';
 
-import from './../../assets/stylesheets/App.scss';
+import Header from './layout/Header.js';
 
-const App = React.createClass({
+const Public = React.createClass({
     render () {
         return (
           <div>
+            <Header />
             <RouteHandler />
           </div>
         );
     }
 });
 
-export default App;
+export default Public;
