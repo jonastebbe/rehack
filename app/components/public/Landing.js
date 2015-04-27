@@ -7,8 +7,7 @@ import {ButtonLink} from 'react-router-bootstrap';
 
 import Header from './layout/Header.js';
 
-import from '../../../assets/stylesheets/Landing.scss';
-import Logo from '../../../assets/images/logo.svg';
+import from '../../../assets/stylesheets/App.scss';
 
 import Logo from '../assets/logo.js';
 
@@ -32,6 +31,11 @@ const Landing = React.createClass({
                             <Col xs={6} sm={2}>
                                 <ButtonLink to="login" bsStyle="default" block>Sign in</ButtonLink>
                             </Col>
+                        </Row>
+                    </Grid>
+                    <Grid className="tutorial-section">
+                        <Row>
+                            <Col></Col>
                         </Row>
                     </Grid>
                 </div>
