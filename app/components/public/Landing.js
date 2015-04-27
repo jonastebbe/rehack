@@ -8,7 +8,6 @@ import {ButtonLink} from 'react-router-bootstrap';
 import Header from './layout/Header.js';
 
 import from '../../../assets/stylesheets/Landing.scss';
-import Logo from '../../../assets/images/logo.svg';
 
 import Logo from '../assets/logo.js';
 
