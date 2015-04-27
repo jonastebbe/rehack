@@ -9,6 +9,8 @@ import Header from './layout/Header.js';
 
 import from '../../../assets/stylesheets/Landing.scss';
 
+import Logo from '../assets/logo.js';
+
 const Landing = React.createClass({
         render() {
             return (
@@ -17,6 +19,7 @@ const Landing = React.createClass({
                     <Grid>
                         <Row>
                             <Col xs={12} className="text-center">
+                                <Logo scale={1}/>
                                 <h1>Prosper</h1>
                                 <p className="lead">
                                     We make savings automated and unnoticable so you can invest more.
