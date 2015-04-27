@@ -161,15 +161,16 @@ export var user = new User();
 export var requireAuth = {
     statics: {
         willTransitionTo: function (transition, params, query, callback) {
-            user.isLoggedIn((result) => {
-                if (!result) {
-                    transition.redirect('/login',
-                        {},
-                        {'nextPath' : transition.path});
-                    console.log('calling the path ', transition.path);
-                }
-                callback();
-            });
+            // user.isLoggedIn((result) => {
+            //     if (!result) {
+            //         transition.redirect('/login',
+            //             {},
+            //             {'nextPath' : transition.path});
+            //         console.log('calling the path ', transition.path);
+            //     }
+            //     callback();
+            // });
+            callback();
         }
     }
 };
@@ -177,15 +178,17 @@ export var requireAuth = {
 export var forbidAuth = {
     statics: {
         willTransitionTo: function (transition, params, query, callback) {
-            user.isLoggedIn((result) => {
-                if (result) {
-                    transition.redirect('/private',
-                        {},
-                        {});
-                    console.log('calling the path ', transition.path);
-                }
-                callback();
-            });
+            // user.isLoggedIn((result) => {
+            //     if (result) {
+            //         transition.redirect('/private',
+            //             {},
+            //             {});
+            //         console.log('calling the path ', transition.path);
+            //     }
+            //     callback();
+            // });
+            callback();
+
         }
     }
 };

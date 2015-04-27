@@ -7,11 +7,7 @@ import {ButtonLink} from 'react-router-bootstrap';
 
 import Header from './layout/Header.js';
 
-<<<<<<< HEAD
 import from '../../../assets/stylesheets/App.scss';
-=======
-import from '../../../assets/stylesheets/Landing.scss';
->>>>>>> 5cdaea891cf9135692425ac8e82901fc9fe09638
 
 import Logo from '../assets/logo.js';
 
