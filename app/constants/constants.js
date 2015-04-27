@@ -1,6 +1,6 @@
 'use strict';
 
-var APIBase = (process.env.NODE_ENV === 'production') ? 'http://api.production.com' : 'http://localhost:8000';
+var APIBase = (process.env.NODE_ENV === 'production') ? 'https://prosper-web-api.herokuapp.com' : 'http://localhost:8000';
 
 export const constants = {
 

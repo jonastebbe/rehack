@@ -26,16 +26,16 @@ const Landing = React.createClass({
                                         We make savings automated and unnoticable so you can invest more.
                                     </p>
                                 </Col>
-                                <Col xs={6} smOffset={4} sm={2} className="text-right">
-                                    <ButtonLink to="register" bsStyle="primary" block>Sign up</ButtonLink>
+                                <Col xs={6} smOffset={3} sm={3} className="text-right">
+                                    <ButtonLink to="register" bsStyle="primary" bsSize="large" block>Sign up</ButtonLink>
                                 </Col>
-                                <Col xs={6} sm={2}>
-                                    <ButtonLink to="login" bsStyle="default" block>Sign in</ButtonLink>
+                                <Col xs={6} sm={3}>
+                                    <ButtonLink to="login" bsStyle="default" bsSize="large" block>Sign in</ButtonLink>
                                 </Col>
                             </Row>
                         </Grid>
                     </div>
-                    <div className="tutorial">
+                    <div className="tutorial-section">
                         <Grid>
                             <Row>
                                 <Col sm={4}>
