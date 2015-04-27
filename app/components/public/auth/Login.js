@@ -3,6 +3,7 @@ import {Link} from 'react-router';
 import {Alert, Grid, Row, Col, Label, Button, ButtonGroup, Input, FormGroup} from 'react-bootstrap';
 import {ButtonLink} from 'react-router-bootstrap';
 import {user, forbidAuth} from '../../../auth.js';
+import from '../../../../assets/stylesheets/App.scss';
 
 var LoginError = React.createClass({
   render: function () {
@@ -76,7 +77,7 @@ export var Login = React.createClass({
         }
 
         return (
-            <div>
+            <div className="auth-form">
                 <div className="subheader">
                   <Grid>
                     <Row>

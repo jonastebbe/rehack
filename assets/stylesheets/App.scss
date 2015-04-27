@@ -26,8 +26,7 @@
     }
 }
 
-.tutorial-section {
-    min-height: 100vh;
+.tutorial {
     padding: 5vh 0;
     font-weight: 300;
 }
@@ -40,6 +39,11 @@
 			fill: none;
 		}
 	}
+}
+
+.auth-form {
+    @include background-gradient();
+    min-height: 100vh;
 }
 
 .logo {
