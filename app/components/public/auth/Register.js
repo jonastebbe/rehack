@@ -6,6 +6,8 @@ import {Grid, Row, Col, Button, Input, Alert} from 'react-bootstrap';
 import {ButtonLink} from 'react-router-bootstrap';
 
 import {user, forbidAuth} from '../../../auth.js';
+import Header from '../layout/Header.js';
+
 
 var RegisterError = React.createClass({
   render: function () {
@@ -117,27 +119,18 @@ export var Register = React.createClass({
         }
 
         return (
-            <div>
-                <div className="subheader">
-                  <Grid>
-                    <Row>
-                        <Col className="subheader__title text-center" xs={12}>
-                            <h2>Register</h2>
-                        </Col>
-                    </Row>
-                  </Grid>
-                </div>
+            <div className="auth-form">
+                <Header />
                 <Grid>
                     <Row>
-                        <Col className="register" xs={12} sm={8} smOffset={2}>
-                            {error}
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col className="register" xs={12} sm={4} smOffset={4}>
-                            <RegisterForm error={this.state.error} loading={this.state.loading} onSubmit={this.onSubmit}/>
-                            <hr />
-                            <ButtonLink to="login" bsStyle="link" bsSize="large" block>Schon registriert? Zum Login</ButtonLink>
+                        <Col className="auth-form__content register" xs={12} sm={4} smOffset={4}>
+                            <Col xs={12}>
+                                    <h2 className="text-center">Register</h2>
+                                    {error}
+                                    <RegisterForm error={this.state.error} loading={this.state.loading} onSubmit={this.onSubmit}/>
+                                    <hr />
+                                    <ButtonLink to="login" bsStyle="link" bsSize="large" block>Already have an account? Login now</ButtonLink>
+                            </Col>
                         </Col>
                     </Row>
                 </Grid>

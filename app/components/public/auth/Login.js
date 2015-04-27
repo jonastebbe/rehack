@@ -3,6 +3,8 @@ import {Link} from 'react-router';
 import {Alert, Grid, Row, Col, Label, Button, ButtonGroup, Input, FormGroup} from 'react-bootstrap';
 import {ButtonLink} from 'react-router-bootstrap';
 import {user, forbidAuth} from '../../../auth.js';
+import from '../../../../assets/stylesheets/App.scss';
+import Header from '../layout/Header.js';
 
 var LoginError = React.createClass({
   render: function () {
@@ -76,50 +78,41 @@ export var Login = React.createClass({
         }
 
         return (
-            <div>
-                <div className="subheader">
-                  <Grid>
-                    <Row>
-                        <Col className="subheader__title text-center" xs={12}>
-                            <h2>Login</h2>
-                        </Col>
-                    </Row>
-                  </Grid>
-                </div>
+            <div className="auth-form">
+                <Header />
                 <Grid>
                     <Row>
-                        <Col className="login" xs={12} sm={8} smOffset={2}>
-                            {error}
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col className="login" xs={12} sm={4} smOffset={4}>
-                            <form className="login__form" onSubmit={this.onSubmit}>
-                                <Input
-                                required={true}
-                                type='email'
-                                placeholder='Email'
-                                label='Email'
-                                ref='email'
-                                groupClassName='group-class'
-                                wrapperClassName='wrapper-class'
-                                labelClassName='label-class'/>
+                        <Col className="auth-form__content login" xs={12} sm={4} smOffset={4}>
+                            <Col xs={12}>
+                                <h2 className="text-center">Login</h2>
+                                {error}
+                                <form className="login__form" onSubmit={this.onSubmit}>
+                                    <Input
+                                    required={true}
+                                    type='email'
+                                    placeholder='Email'
+                                    label='Email'
+                                    ref='email'
+                                    groupClassName='group-class'
+                                    wrapperClassName='wrapper-class'
+                                    labelClassName='label-class'/>
 
-                                <Input
-                                required={true}
-                                type='password'
-                                placeholder='Password'
-                                label='Password'
-                                ref='password'
-                                groupClassName='group-class'
-                                wrapperClassName='wrapper-class'
-                                labelClassName='label-class'/>
+                                    <Input
+                                    required={true}
+                                    type='password'
+                                    placeholder='Password'
+                                    label='Password'
+                                    ref='password'
+                                    groupClassName='group-class'
+                                    wrapperClassName='wrapper-class'
+                                    labelClassName='label-class'/>
 
-                                <Button type="submit" bsStyle="primary" bsSize="large" block onSubmit={this.onSubmit}>Login</Button>
-                            </form>
-                            <ButtonLink to="login" bsStyle="link" bsSize="large" block>Forgot password?</ButtonLink>
-                            <hr />
-                            <ButtonLink to="register" bsSize="large" className="btn-ghost" block>Sign up</ButtonLink>
+                                    <Button type="submit" bsStyle="primary" bsSize="large" block onSubmit={this.onSubmit}>Login</Button>
+                                </form>
+                                <ButtonLink to="login" bsStyle="link" bsSize="large" block>Forgot password?</ButtonLink>
+                                <hr />
+                                <ButtonLink to="register" bsSize="large" className="btn-ghost" block>Sign up</ButtonLink>
+                            </Col>
                         </Col>
                     </Row>
                 </Grid>
