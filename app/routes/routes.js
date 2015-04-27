@@ -11,6 +11,7 @@ import App from '../components/App.js';
 
 import Private     from '../components/private/Private';
 import Home        from '../components/private/Home';
+import Dashboard        from '../components/private/Dashboard';
 
 //
 // PUBLIC, ONLY ACCESSIBLE WHEN LOGED OUT
@@ -31,9 +32,9 @@ const routes = (
             <Route name="logout" path="/logout" handler={Logout}/>
         </Route>
         <Route name="private" path="/private" handler={Private}>
-            <DefaultRoute handler={Home}/>
-            <NotFoundRoute handler={Home}/>
-            <Route name="home" handler={Home}/>
+            <DefaultRoute handler={Dashboard}/>
+            <NotFoundRoute handler={Dashboard}/>
+            <Route name="home" handler={Dashboard}/>
         </Route>
     </Route>
 );
