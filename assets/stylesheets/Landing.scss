@@ -1,4 +1,41 @@
 .hero-section {
-    background-color: #27ae60;
-    height: 100vh;
+    color: #fff;
+    background: linear-gradient(181deg, #m2980b9, #27ae60);
+    background-size: 400% 400%;
+
+    -webkit-animation: AnimatedBackground 4s ease infinite;
+    -moz-animation: AnimatedBackground 4s ease infinite;
+    -o-animation: AnimatedBackground 4s ease infinite;
+    animation: AnimatedBackground 4s ease infinite;
+    min-height: 100vh;
+    h1 {
+        color: #fff;
+    }
+    &__content {
+        margin-top: 10vh;
+        &__logo {
+            height: 100px;
+        }
+    }
+}
+
+@-webkit-keyframes AnimatedBackground {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes AnimatedBackground {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-o-keyframes AnimatedBackground {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes AnimatedBackground {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
 }

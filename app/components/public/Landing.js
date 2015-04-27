@@ -8,15 +8,17 @@ import {ButtonLink} from 'react-router-bootstrap';
 import Header from './layout/Header.js';
 
 import from '../../../assets/stylesheets/Landing.scss';
+import Logo from '../../../assets/images/logo.svg';
 
 const Landing = React.createClass({
         render() {
             return (
                 <div className="hero-section">
                     <Header />
-                    <Grid>
+                    <Grid className="hero-section__content">
                         <Row>
                             <Col xs={12} className="text-center">
+                                <img className="hero-section__content__logo" src={Logo} />
                                 <h1>Prosper</h1>
                                 <p className="lead">
                                     We make savings automated and unnoticable so you can invest more.
